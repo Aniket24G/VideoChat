@@ -5,6 +5,7 @@
 import "./style.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+import {env} from '../env'
 
 document.addEventListener("DOMContentLoaded", () => {
   //get all the buttons and inputs
@@ -32,12 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyCj7JsPCcmjOWPbOf7YBkMIxWALVbeavlk",
-    authDomain: "fir-rtc-e95f1.firebaseapp.com",
-    projectId: "fir-rtc-e95f1",
-    storageBucket: "fir-rtc-e95f1.firebasestorage.app",
-    messagingSenderId: "907537767246",
-    appId: "1:907537767246:web:520782016fc25297d1dc1f",
+    apiKey: env.FIREBASE_API_KEY,
+    authDomain: env.FIREBASE_AUTH_DOMAIN,
+    projectId: env.FIREBASE_PROJECT_ID,
+    storageBucket: env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: env.FIREBASE_SENDER_ID,
+    appId: env.FIREBASE_APP_ID,
   };
 
   // Initialize Firebase
