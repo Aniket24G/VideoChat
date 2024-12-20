@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/default-image.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Chatu</h1>
+      </header>
+
+      <main class="container">
+        <section class="videos">
+          <div class="video-container">
+            <h3>Local</h3>
+            <video
+              id="localCamVideo"
+              autoplay
+              playsinline
+              poster="/default-image.jpg"
+            ></video>
+          </div>
+          <div class="video-container">
+            <h3>Remote</h3>
+            <video
+              id="remoteCamVideo"
+              autoplay
+              playsinline
+              poster="./public/default-image.jpg"
+            ></video>
+          </div>
+        </section>
+
+        <section class="controls">
+          <button id="cameraButton">Camera</button>
+          <button id="micButton">Mic</button>
+          <button id="localCamButton">Start camera</button>
+          <button id="callButton">Call</button>
+          <input type="text" id="callInput" placeholder="Enter call Id" />
+          <button id="getLink" hidden>Get Link</button>
+          <input type="text" readonly id="callLink" hidden />
+          <button id="copyLink" hidden>copy</button>
+          <button id="answerButton">Answer</button>
+          <button id="hangUp" disabled>Hang up</button>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
