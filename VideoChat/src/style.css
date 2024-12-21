@@ -1,10 +1,10 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f4f4f4;
   display: flex;
@@ -15,30 +15,30 @@ body{
   margin: 0;
 }
 
-header{
+header {
   text-align: center;
   margin-bottom: 20px;
 }
 
-header h1{
+header h1 {
   font-size: 2rem;
   color: #333;
   margin-bottom: 20px;
 }
 
-.container{
+.container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   background: #fff;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.videos{
+.videos {
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -47,18 +47,18 @@ header h1{
   flex-wrap: wrap;
 }
 
-.video-container{
+.video-container {
   flex: 1;
   text-align: center;
   min-width: 250px;
 }
 
-.video-container h3{
+.video-container h3 {
   margin-bottom: 10px;
   color: #555;
 }
 
-video{
+video {
   width: 400px;
   height: 350px;
   background-color: #000;
@@ -66,7 +66,7 @@ video{
   border-radius: 8px;
 }
 
-.controls{
+.controls {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -75,7 +75,14 @@ video{
   width: 100%;
 }
 
-button, input{
+.controls-template {
+  display: flex;
+  gap: 20px;
+  width: 50%;
+}
+
+button,
+input {
   padding: 10px 20px;
   font-size: 1rem;
   border: none;
@@ -84,68 +91,71 @@ button, input{
   max-width: 300px;
 }
 
-button{
-  background-color: #007bff;
+button {
+  background-color: #ff7b00;
   color: #fff;
   cursor: pointer;
+  font-weight: 600;
 }
 
-button:hover{
-  background-color: #0056b3;
+button:hover {
+  background-color: #e0703c;
+  color: #ffffff;
 }
 
-input{
+input {
   border: 2px solid #ddd;
   border-radius: 4px;
   padding: 8px 12px;
   font-size: 1rem;
 }
 
-
-
-@media (max-width: 768){
+@media (max-width: 768) {
   video {
     width: 300px; /* Adjust width for tablets */
     height: 225px; /* Adjust height for tablets */
   }
 
-  .videos{
+  .videos {
     flex-direction: column;
     gap: 10px;
   }
 
-  .video-container{
+  .video-container {
     width: 100%;
     margin-bottom: 10px;
   }
 
-  .controls{
+  .controls {
     width: 100%;
     gap: 12px;
   }
 
-  button, input{
+  button,
+  input {
     max-width: 100%;
     font-size: 1rem;
   }
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
   video {
     width: 200px; /* Adjust width for tablets */
     height: 150px; /* Adjust height for tablets */
   }
 
-  header h1{
+  header h1 {
     font-size: 1.5rem;
   }
 
-  button, input{
+  button,
+  input {
     padding: 8px 16px;
     font-size: 0.9rem;
+    width: 50%;
   }
 
-  video{
-    height:150px;
+  video {
+    height: 150px;
   }
 }

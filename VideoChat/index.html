@@ -35,16 +35,22 @@
         </section>
 
         <section class="controls">
-          <button id="cameraButton">Camera</button>
-          <button id="micButton">Mic</button>
-          <button id="localCamButton">Start camera</button>
-          <button id="callButton">Call</button>
+          <div class="controls-template">
+            <button id="cameraButton">📷</button>
+            <button id="micButton">🎙️</button>
+          </div>
+          <div class="controls-template">
+            <button id="localCamButton">Start camera</button>
+            <button id="callButton">Call</button>
+          </div>
           <input type="text" id="callInput" placeholder="Enter call Id" />
           <button id="getLink" hidden>Get Link</button>
           <input type="text" readonly id="callLink" hidden />
           <button id="copyLink" hidden>copy</button>
-          <button id="answerButton">Answer</button>
-          <button id="hangUp" disabled>Hang up</button>
+          <div class="controls-template">
+            <button id="answerButton">Answer</button>
+            <button id="hangUp" disabled>Hang up</button>
+          </div>
         </section>
       </main>
     </div>
