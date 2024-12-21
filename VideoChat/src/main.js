@@ -5,23 +5,11 @@
 import "./style.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-import {env} from '../env'
+import {localCamButton, localVideo, callButton, callInput, answerButton, hangUp, remoteVideo, getLink, copyLink, callLink, camera, mic} from './controls'
+import { firebaseConfig } from "./config";
+import { server } from "./servers";
 
 document.addEventListener("DOMContentLoaded", () => {
-  //get all the buttons and inputs
-  const localCamButton = document.getElementById("localCamButton");
-  const localVideo = document.getElementById("localCamVideo");
-  const callButton = document.getElementById("callButton");
-  const callInput = document.getElementById("callInput");
-  const answerButton = document.getElementById("answerButton");
-  const hangUp = document.getElementById("hangUp");
-  const remoteVideo = document.getElementById("remoteCamVideo");
-  const getLink = document.getElementById("getLink");
-  const copyLink = document.getElementById("copyLink");
-  const callLink = document.getElementById("callLink");
-  const camera = document.getElementById("cameraButton");
-  const mic = document.getElementById("micButton");
-
   //extract callid from url
   const url = new URLSearchParams(window.location.search);
   const callIdFromURL = url.get("callId");
@@ -31,32 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("click answer to join the call");
   }
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: env.FIREBASE_API_KEY,
-    authDomain: env.FIREBASE_AUTH_DOMAIN,
-    projectId: env.FIREBASE_PROJECT_ID,
-    storageBucket: env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: env.FIREBASE_SENDER_ID,
-    appId: env.FIREBASE_APP_ID,
-  };
-
   // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
   const firestore = firebase.firestore();
-
-  //stun servers
-  const server = {
-    iceServers: [
-      {
-        urls: [
-          "stun:stun1.l.google.com:19302",
-          "stun:stun2.l.google.com:19302",
-        ],
-      },
-    ],
-    iceCandidatePoolSize: 10,
-  };
 
   //global state to manage peer connection
   let pc = new RTCPeerConnection(server);
@@ -120,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //create an call offer
   callButton.onclick = async () => {
-    // remoteStream = new MediaStream();
 
     //reference firestore collection
     const callDoc = firestore.collection("calls").doc();
@@ -139,20 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         offerCandidates.add(event.candidate.toJSON());
       }
     };
-
-    //handle the remote video
-    // pc.ontrack = (event) => {
-    //   event.streams[0].getTracks().forEach((track) => {
-    //     remoteStream.addTrack(track);
-    //   });
-
-    //   if (remoteVideo) {
-    //     remoteVideo.srcObject = remoteStream;
-    //   } else {
-    //     console.error("error in remote video");
-    //   }
-    // };
-
+    
     //create an offer
     const offerDesc = await pc.createOffer();
     await pc.setLocalDescription(offerDesc);

@@ -1,0 +1,12 @@
+export const localCamButton = document.getElementById("localCamButton");
+export const localVideo = document.getElementById("localCamVideo");
+export const callButton = document.getElementById("callButton");
+export const callInput = document.getElementById("callInput");
+export const answerButton = document.getElementById("answerButton");
+export const hangUp = document.getElementById("hangUp");
+export const remoteVideo = document.getElementById("remoteCamVideo");
+export const getLink = document.getElementById("getLink");
+export const copyLink = document.getElementById("copyLink");
+export const callLink = document.getElementById("callLink");
+export const camera = document.getElementById("cameraButton");
+export const mic = document.getElementById("micButton");
